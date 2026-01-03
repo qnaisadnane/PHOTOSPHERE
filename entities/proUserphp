@@ -1,0 +1,21 @@
+<?php 
+
+require_once'./user.php';
+
+Class ProUser extends basicUser{
+    private $subscriptionStart;
+    private $subscriptionEnd;
+
+    public function __construct($id_user, $name , $email , $password , $createdAt , $lastLogin , $bio , $profilePicture , $uploadCount , $subscriptionStart , $subscriptionEnd){
+        parent::__construct($id_user, $name , $email , $password , $createdAt , $lastLogin , $bio , $profilePicture , $uploadCount );
+        $this->subscriptionStart=$subscriptionStart;
+        $this->subscriptionEnd=$subscriptionEnd;
+    }
+
+    public function getSubscriptionStart(){
+        return $this->subscriptionStart;
+    }
+    public function getSubscriptionEnd(){
+        return $this->subscriptionEnd;
+    }
+}
