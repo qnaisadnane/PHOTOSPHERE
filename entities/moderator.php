@@ -3,10 +3,10 @@
 require_once'./user.php';
 
 Class Moderator extends User{
-    protected $string;
+    protected $level;
 
-    public function __construct($id_user, $name , $email , $password , $createdAt , $lastLogin , $bio , $profilePicture , $level){
-        parent::__construct($id_user, $name , $email , $password , $createdAt , $lastLogin , $bio , $profilePicture);
+    public function __construct($id_user, $username , $email , $password , $createdAt , $lastLogin , $bio , $role , $adresse , $level){
+        parent::__construct($id_user, $username , $email , $password , $createdAt , $lastLogin , $bio , $role , $adresse);
         $this->level=$level;
     }
 
