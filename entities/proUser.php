@@ -2,7 +2,7 @@
 
 require_once 'basicUser.php';
 
-Class ProUser extends basicUser{
+Class ProUser extends BasicUser{
     private $subscriptionStart;
     private $subscriptionEnd;
 
@@ -18,6 +18,19 @@ Class ProUser extends basicUser{
     public function getSubscriptionEnd(){
         return $this->subscriptionEnd;
     }
+    public function canCreatePrivateAlbum(): bool {
+        return true;
+    }
+    public function canUploadPhoto(): bool {
+        $today = date('Y-m-d');
+        return $today <= $this->subscriptionEnd;
+    }
+    
+    public function hasActiveSubscription(): bool {
+        $today = date('Y-m-d');
+        return $today >= $this->subscriptionStart && $today <= $this->subscriptionEnd;
+    }
+
 }
 
 ?>

@@ -13,6 +13,21 @@ Class Admin extends User{
     public function getIsSuper(){
         return $this->isSuper;
     }
+  
+    public function canCreatePrivateAlbum(): bool {
+        return true;
+    }
+    
+    public function canUploadPhoto(): bool {
+        return true;
+    }
+    
+    public function canManageUsers(): bool {
+        return true;
+    }
+    
+    public function canDeleteContent(): bool {
+        return true;
+    }
 }
-
 ?>

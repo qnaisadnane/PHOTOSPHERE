@@ -13,10 +13,17 @@ Class BasicUser extends User{
     public function getUploadCount(){
         return $this->uploadCount;
     }
-}
 
     public function incrementUploadCount(): void {
         $this->uploadCount++;
     }
 
+    public function canCreatePrivateAlbum(): bool {
+        return false;
+    }
+    
+    public function canUploadPhoto(): bool {
+        return $this->uploadCount < 20;
+    }
+}
 ?>

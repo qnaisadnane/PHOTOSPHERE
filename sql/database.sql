@@ -1,5 +1,3 @@
-
-
 create table users( 
     id_utilisateur int PRIMARY KEY AUTO_INCREMENT, 
     username VARCHAR(30) unique, 
