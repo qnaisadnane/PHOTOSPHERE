@@ -15,4 +15,8 @@ Class BasicUser extends User{
     }
 }
 
+    public function incrementUploadCount(): void {
+        $this->uploadCount++;
+    }
+
 ?>

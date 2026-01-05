@@ -50,6 +50,20 @@ abstract Class User{
    public function getAdresse(){
     return $this->adresse;
    }
+
+   abstract public function canCreatePrivateAlbum(): bool;
+   abstract public function canUploadPhoto(): bool;
+   
+
+   public function login($username,$password):bool {
+        if (getUserName()===$username && password_verify($password, getPassword())) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
 }
 
 ?>
