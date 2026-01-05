@@ -1,12 +1,12 @@
 <?php 
 
-require_once'./user.php';
+require_once 'user.php';
 
 Class Admin extends User{
     protected $isSuper;
 
-    public function __construct($id_user, $username , $email , $password , $createdAt , $lastLogin , $bio , $role , $adresse, $isSuper){
-        parent::__construct($id_user, $username , $email , $password , $createdAt , $lastLogin , $bio , $role , $adresse);
+    public function __construct($id_user, $username , $email , $password  , $bio , $role , $adresse, $isSuper){
+        parent::__construct($id_user, $username , $email , $password  , $bio , $role , $adresse);
         $this->isSuper=$isSuper;
     }
 
@@ -14,3 +14,5 @@ Class Admin extends User{
         return $this->isSuper;
     }
 }
+
+?>

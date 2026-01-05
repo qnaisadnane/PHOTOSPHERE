@@ -11,13 +11,13 @@ abstract Class User{
    protected  $role;
    protected  $adresse;
 
-   public function __construct($id_user, $username , $email , $password , $createdAt , $lastLogin , $bio , $role , $adresse){
+   public function __construct($id_user, $username , $email , $password , $bio , $role , $adresse){
     $this->id_user = $id_user;
     $this->username = $username;
     $this->email = $email;
     $this->password = $password;
-    $this->createdAt = $createdAt;
-    $this->lastLogin = $lastLogin;
+    $this->createdAt =  date('Y-m-d H:i:s');
+    $this->lastLogin =  date('Y-m-d H:i:s');
     $this->bio = $bio;
     $this->role = $role;
     $this->adresse = $adresse;
@@ -51,3 +51,5 @@ abstract Class User{
     return $this->adresse;
    }
 }
+
+?>

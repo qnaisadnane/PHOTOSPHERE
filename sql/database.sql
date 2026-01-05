@@ -23,8 +23,8 @@ create table tag(
     );
 
 CREATE TABLE post_tag (
-    post_id INT NOT NULL,
-    tag_id INT NOT NULL,
+    id_post INT NOT NULL,
+    id_tag INT NOT NULL,
 
     PRIMARY KEY (id_post, id_tag),
 
@@ -61,18 +61,18 @@ create table post(
     );
 
     CREATE TABLE post_album (
-    post_id INT NOT NULL,
-    album_id INT NOT NULL,
+    id_post INT NOT NULL,
+    id_album INT NOT NULL,
 
-    PRIMARY KEY (post_id, album_id),
+    PRIMARY KEY (id_post, id_album),
 
     CONSTRAINT fk_postalbum_post
-        FOREIGN KEY (post_id)
+        FOREIGN KEY (id_post)
         REFERENCES post(id_post)
         ON DELETE CASCADE,
 
     CONSTRAINT fk_postalbum_album
-        FOREIGN KEY (album_id)
+        FOREIGN KEY (id_album)
         REFERENCES album(id_album)
         ON DELETE CASCADE
 );
@@ -106,16 +106,16 @@ create table comment(
 
 create table album( 
     id_album int PRIMARY KEY AUTO_INCREMENT,
-    user_id INT NOT NULL, 
+    id_utilisateur INT NOT NULL, 
     name VARCHAR(30) not null, 
-    description TEXT;, 
+    description TEXT, 
     photo VARCHAR(30) DEFAULT NULL,
     type VARCHAR(30) NOT NULL, 
     createdAt Timestamp DEFAULT CURRENT_TIMESTAMP,
     last_update Timestamp DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT fk_album_user
-        FOREIGN KEY (user_id)
+        FOREIGN KEY (id_utilisateur)
         REFERENCES users(id_utilisateur)
         ON DELETE CASCADE
     );  
