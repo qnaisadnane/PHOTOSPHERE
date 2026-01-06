@@ -42,6 +42,4 @@ if (isset($pro)) {
     echo "  Abonnement actif: " . ($pro->hasActiveSubscription() ? 'oui' : 'non') . "\n";
 }
 
-
-
 ?>
