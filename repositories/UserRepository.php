@@ -8,22 +8,6 @@ Class UserRepository Implements RepositoryInterface{
         $this->db = $dbconn;
     }
 
-    public function findByEmail(string $email) : ?User {
-       $sql = "SELECT * From User where email = :email";
-       $stmt = $this->db->getConnection()->prepare($sql);
-       $stmt ->bindParam(":email" , $email);
-
-       if($stmt->execute()){
-        $userData = $stmt->fetch(PDO::FETCH_ASSOC);
-        if(!$userData) {return null;}
-
-        return $this->createUserFromData($userData);
-
-       }
-
-       return null;
-
-    }
 
     public function Save(User $user) :bool{
       if($this->$getId == 0){
@@ -32,35 +16,39 @@ Class UserRepository Implements RepositoryInterface{
       return false;
     }
 
-      private function createUserFromData(array $userData): ?User {
-        $userId = $userData['id_user'];
-        $role = $userData['role'];
+    //   private function createUserFromData(array $userData): ?User {
+    //     $userId = $userData['id_user'];
+    //     $role = $userData['role'];
+    //     $role = $userData['role'];
+    //     $role = $userData['role'];
+    //     $role = $userData['role'];
+    //     $role = $userData['role'];
 
-        $extraData = $this->fetchRoleData($role , $userId);
+    //     $extraData = $this->fetchRoleData($role , $userId);
 
-        $allData = array_merge($userData , $extraData);
+    //     $allData = array_merge($userData , $extraData);
     
-        switch($role){
-         case 'admin':
-            return new Admin($allData);
+    //     switch($role){
+    //      case 'admin':
+    //         return new Admin($allData);
         
-        case 'pro':
-           return new ProUser($allData);
+    //     case 'pro':
+    //        return new ProUser($allData);
     
-        case 'basic':
-            return new BasicUser($allData);
-        default:
-                return null;
-        }
-    }
-       private function fetchRoleData(string $role, int $userId): array {
-        $roleTables = [
-            'admin' => 'Admin',
-            'pro' => 'Pro_User',
-            'basic' => 'Basic_User'
+    //     case 'basic':
+        //         return new BasicUser($allData);
+        //     default:
+        //             return null;
+        //     }
+        // }
+        private function fetchRoleData(string $role, int $userId): array {
+            $roleTables = [
+                'admin' => 'Admin',
+                'pro' => 'Pro_User',
+                'basic' => 'Basic_User'
         ];
         
-        $table = $roleTables[$role] ?? null;
+        $table = $roleTables[$role] ? null;
         
         if (!$table) {
             return [];

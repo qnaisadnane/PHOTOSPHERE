@@ -4,11 +4,11 @@ Interface Commentable{
 
     public function addComment(string $content, int $userId): int;
 
-    public function removeComment(int $commentId): bool
+    public function removeComment(int $commentId): bool;
 
-    public function getComments(): array
+    public function getComments(): array;
 
-    public function getCommentCount(): int
+    public function getCommentCount(): int;
 
 }
 

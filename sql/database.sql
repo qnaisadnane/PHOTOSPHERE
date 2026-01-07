@@ -77,8 +77,7 @@ create table post(
 
 create table comment( 
     id_comment int PRIMARY KEY AUTO_INCREMENT,
-
-    user_id INT NOT NULL,
+    id_utilisateur INT NOT NULL,
     post_id INT NOT NULL,
     parent_id INT DEFAULT NULL, 
     content Text , 

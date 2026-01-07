@@ -13,14 +13,14 @@ Class Admin extends User{
     public function getIsSuper(){
         return $this->isSuper;
     }
+    public function setIsSuper(bool $isSuper) :void{
+        $this->isSuper = $isSuper;
+    }
   
     public function canCreatePrivateAlbum(): bool {
         return true;
     }
     
-    public function canUploadPhoto(): bool {
-        return true;
-    }
     
     public function canManageUsers(): bool {
         return true;

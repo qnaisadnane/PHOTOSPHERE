@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/entities/user.php';
+require_once __DIR__ . "/../entities/user.php";
 
 try{
     $user = new User(1, 'test', 'test@test.com', 'pass', 'Bio', 'user', 'Paris');
@@ -11,11 +11,10 @@ try{
 
 ?>
 
-
 <?php
 
 
-require_once __DIR__ . '/Database.php';
+require_once __DIR__ . "/../repositories/Database.php";
 
 try{
     $conn = Database::getConnection();

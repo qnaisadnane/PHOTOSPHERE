@@ -1,13 +1,18 @@
 <?php
 
-Class Post{
+ require_once __DIR__ . '/../repositories/Database.php';
+
+
+Class Post implements Commentable , Likeable , Taggable{
+
+
    private  $id_post;
    private  $title;
    private  $description;
    private  $imagelink;
    private  $fileSize;
    private  $dimensions;
-   private  $state;
+   private  $status;
    private  $viewCount;
    private  $publishedAt;
    private  $createdAt;
@@ -60,5 +65,7 @@ Class Post{
     public function getUpdatedAt(){
      return $this->updatedAt;
     }
-
+    
 }
+
+?>
